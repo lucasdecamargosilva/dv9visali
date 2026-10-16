@@ -380,7 +380,7 @@
         }
         .q-btn-inline-provador:hover { background: var(--c-accent) !important; color: #fff !important; }
         /* DV9: a coluna do "Comprar" tem padding-left 90px (quantidade à esquerda); o provador vai embaixo, largura cheia */
-        .q-pl-dv9-wrap { clear: both; width: 100%; padding: 0; margin: 0; }
+        .q-pl-dv9-wrap { clear: both; width: 100%; padding: 0; margin: 14px 0 0 0; }   /* 16/10: respiro entre o Comprar e o provador */
         .q-pl-dv9-wrap .q-btn-inline-provador { margin: 0 0 12px 0; }
         .q-btn-inline-provador:active { transform: translateY(1px); }
         .q-btn-inline-provador svg { width: 14px; height: 14px; flex-shrink: 0; }
