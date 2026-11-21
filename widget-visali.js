@@ -372,17 +372,17 @@ setInterval(function(){var el=document.getElementById('q-step-error');if(!el)ret
         @keyframes q-shake-soft { 0%,88%,100%{transform:rotate(0deg)} 92%{transform:rotate(-3deg)} 96%{transform:rotate(3deg)} }
         .q-btn-trigger-ia {
             position: absolute; top: 12px; left: 12px; right: auto; z-index: 100; line-height: 1.2;
-            display: inline-flex; align-items: center; gap: 6px;
-            padding: 8px 14px; width: auto; height: auto;
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 11px 18px; width: auto; height: auto;   /* 21/11: selo maior (era 8px 14px, fonte 11px) */
             cursor: pointer; -webkit-appearance: none; appearance: none;
-            font-family: inherit; font-size: 11px; font-weight: 600; letter-spacing: 0.5px;
+            font-family: inherit; font-size: 14px; font-weight: 700; letter-spacing: 0.5px;
             box-shadow: 0 4px 14px rgba(46,48,146,0.35);
             animation: q-shake-soft 5s ease-in-out infinite;
             transition: filter 0.2s, transform 0.1s;
         }
         .q-btn-trigger-ia:hover { filter: brightness(1.08); }
         .q-btn-trigger-ia:active { transform: translateY(1px); }
-        .q-btn-trigger-ia svg { width: 16px; height: 16px; flex-shrink: 0; }
+        .q-btn-trigger-ia svg { width: 20px; height: 20px; flex-shrink: 0; }
         /* especificidade de ID: garante o estilo azul mesmo com o button{} do tema */
         button#q-open-ia, button#q-open-ia:hover, button#q-open-ia:focus, button#q-open-ia:active {
             background: var(--c-grad) !important; background-color: #2E3092 !important;
@@ -391,7 +391,7 @@ setInterval(function(){var el=document.getElementById('q-step-error');if(!el)ret
             -webkit-appearance: none !important; appearance: none !important;
         }
         button#q-open-ia::before, button#q-open-ia::after { display: none !important; content: none !important; }
-        @media (min-width: 768px) { .q-btn-trigger-ia { font-size: 12px; padding: 9px 16px; } .q-btn-trigger-ia svg { width: 18px; height: 18px; } }
+        @media (min-width: 768px) { .q-btn-trigger-ia { font-size: 16px; padding: 12px 22px; } .q-btn-trigger-ia svg { width: 24px; height: 24px; } }
 
         /* ── Inline button ── */
         .q-btn-inline-provador {
