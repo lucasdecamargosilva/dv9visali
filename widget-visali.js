@@ -409,6 +409,8 @@ setInterval(function(){var el=document.getElementById('q-step-error');if(!el)ret
         /* DV9: a coluna do "Comprar" tem padding-left 90px (quantidade à esquerda); o provador vai embaixo, largura cheia */
         .q-pl-dv9-wrap { clear: both; width: 100%; padding: 0; margin: 14px 0 0 0; }   /* 16/10: respiro entre o Comprar e o provador */
         .q-pl-dv9-wrap .q-btn-inline-provador { margin: 0 0 12px 0; }
+        .q-pl-dv9-wrap .q-btn-medir-dp { display: flex !important; align-items: center !important; justify-content: center !important; gap: 8px !important; text-decoration: none !important; margin-top: -4px; }
+        .q-btn-medir-dp svg { width: 16px !important; height: 16px !important; }
         .q-btn-inline-provador:active { transform: translateY(1px); }
         .q-btn-inline-provador svg { width: 14px; height: 14px; flex-shrink: 0; }
 
@@ -1122,6 +1124,19 @@ setInterval(function(){var el=document.getElementById('q-step-error');if(!el)ret
         const inlineWrap = document.createElement('div');
         inlineWrap.className = 'q-pl-dv9-wrap';
         inlineWrap.appendChild(inlineBtn);
+        // 24/11/2026: botão MEDIR DP (abre provoulevou.com.br/dp/visali/ numa aba nova, com o produto no link)
+        try {
+            var _tit = (plDv9Title() || document.title || '');
+            if (!/\b(sol|solar)\b/i.test(_tit) || /clip/i.test(_tit)) {
+                var dpBtn = document.createElement('a');
+                dpBtn.className = 'q-btn-inline-provador q-btn-medir-dp';
+                dpBtn.target = '_blank'; dpBtn.rel = 'noopener';
+                dpBtn.href = 'https://provoulevou.com.br/dp/visali/?produto=' + encodeURIComponent(_tit.trim().slice(0, 120));
+                dpBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6.5" cy="13" r="3.5"/><circle cx="17.5" cy="13" r="3.5"/><path d="M10 13h4M3 5h18M3 3.5v3M21 3.5v3M12 4v2"/></svg>Medir DP';
+                dpBtn.addEventListener('click', function () { try { window.__plBtnSrc = 'medir-dp'; } catch (_) {} });
+                inlineWrap.appendChild(dpBtn);
+            }
+        } catch (_) {}
         function plPlaceInline() {
             var f = document.querySelector('form[name="form_comprar_produto"]');
             if (!f) return false;
